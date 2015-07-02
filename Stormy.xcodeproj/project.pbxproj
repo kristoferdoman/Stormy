@@ -13,10 +13,10 @@
 		18C80D281B30710A00377D30 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C80D271B30710A00377D30 /* Images.xcassets */; };
 		18C80D2B1B30710A00377D30 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C80D291B30710A00377D30 /* LaunchScreen.xib */; };
 		18C80D371B30710A00377D30 /* StormyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80D361B30710A00377D30 /* StormyTests.swift */; };
-		18C80D431B30723D00377D30 /* CurrentWeather.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18C80D421B30723D00377D30 /* CurrentWeather.plist */; };
 		18C80D451B3072B800377D30 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80D441B3072B800377D30 /* CurrentWeather.swift */; };
 		18C80D481B30B1F000377D30 /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80D471B30B1F000377D30 /* NetworkOperation.swift */; };
 		18C80D4A1B31A3D200377D30 /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C80D491B31A3D200377D30 /* ForecastService.swift */; };
+		18F758AF1B45805000DCED67 /* CurrentWeather.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18F758AE1B45805000DCED67 /* CurrentWeather.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,11 +40,11 @@
 		18C80D301B30710A00377D30 /* StormyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StormyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C80D351B30710A00377D30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18C80D361B30710A00377D30 /* StormyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StormyTests.swift; sourceTree = "<group>"; };
-		18C80D421B30723D00377D30 /* CurrentWeather.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = CurrentWeather.plist; path = ../../../../../../../Downloads/Safari/StormyS1V2/Stormy/CurrentWeather.plist; sourceTree = "<group>"; };
 		18C80D441B3072B800377D30 /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		18C80D461B30A31700377D30 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		18C80D471B30B1F000377D30 /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
 		18C80D491B31A3D200377D30 /* ForecastService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
+		18F758AE1B45805000DCED67 /* CurrentWeather.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CurrentWeather.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +103,7 @@
 		18C80D1E1B30710A00377D30 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				18C80D421B30723D00377D30 /* CurrentWeather.plist */,
+				18F758AE1B45805000DCED67 /* CurrentWeather.plist */,
 				18C80D1F1B30710A00377D30 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -207,7 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18C80D261B30710A00377D30 /* Main.storyboard in Resources */,
-				18C80D431B30723D00377D30 /* CurrentWeather.plist in Resources */,
+				18F758AF1B45805000DCED67 /* CurrentWeather.plist in Resources */,
 				18C80D2B1B30710A00377D30 /* LaunchScreen.xib in Resources */,
 				18C80D281B30710A00377D30 /* Images.xcassets in Resources */,
 			);
@@ -427,6 +427,7 @@
 				18C80D3C1B30710A00377D30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18C80D3D1B30710A00377D30 /* Build configuration list for PBXNativeTarget "StormyTests" */ = {
 			isa = XCConfigurationList;
@@ -435,6 +436,7 @@
 				18C80D3F1B30710A00377D30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
