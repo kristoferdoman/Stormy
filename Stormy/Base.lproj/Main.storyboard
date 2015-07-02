@@ -1,9 +1,86 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4IU-Dj-65e">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
+        <!--Weekly Table View Controller-->
+        <scene sceneID="BiD-t3-XIb">
+            <objects>
+                <tableViewController id="RYt-NH-JP1" customClass="WeeklyTableViewController" customModule="Stormy" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="kLU-h2-245">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="6RU-qV-HoI">
+                            <rect key="frame" x="0.0" y="64" width="600" height="150"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="72º" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4O-O2-QEL">
+                                    <rect key="frame" x="305" y="56" width="53" height="43"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="36"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alcatraz Island, CA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3s6-rn-jnE">
+                                    <rect key="frame" x="254" y="109" width="93" height="15"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hax-32-qSc">
+                                    <rect key="frame" x="8" y="127" width="17" height="15"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="0.70000000000000007" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="2vS-bU-t1E">
+                                    <rect key="frame" x="245" y="53" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="gEr-cP-cKJ"/>
+                                        <constraint firstAttribute="width" constant="50" id="hNK-Jr-IZr"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↑63º↓39º" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIg-Fk-YHA">
+                                    <rect key="frame" x="533" y="127" width="59" height="15"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="centerY" secondItem="3s6-rn-jnE" secondAttribute="centerY" constant="-42" id="5Mr-ur-Mdo"/>
+                                <constraint firstAttribute="bottom" secondItem="hax-32-qSc" secondAttribute="bottom" constant="8" id="6BA-fe-mmE"/>
+                                <constraint firstAttribute="centerX" secondItem="3s6-rn-jnE" secondAttribute="centerX" id="E4Z-0m-AzU"/>
+                                <constraint firstItem="hax-32-qSc" firstAttribute="leading" secondItem="6RU-qV-HoI" secondAttribute="leading" constant="8" id="Ke6-KP-aS5"/>
+                                <constraint firstItem="3s6-rn-jnE" firstAttribute="top" secondItem="Z4O-O2-QEL" secondAttribute="bottom" constant="10" id="TlO-qE-juY"/>
+                                <constraint firstItem="3s6-rn-jnE" firstAttribute="top" secondItem="2vS-bU-t1E" secondAttribute="bottom" constant="6" id="VcI-dz-1AG"/>
+                                <constraint firstAttribute="trailing" secondItem="rIg-Fk-YHA" secondAttribute="trailing" constant="8" id="dn3-zd-12b"/>
+                                <constraint firstAttribute="bottom" secondItem="rIg-Fk-YHA" secondAttribute="bottom" constant="8" id="iG0-n8-hNY"/>
+                                <constraint firstAttribute="centerX" secondItem="Z4O-O2-QEL" secondAttribute="centerX" constant="-32" id="iKM-YU-PPo"/>
+                                <constraint firstAttribute="centerX" secondItem="2vS-bU-t1E" secondAttribute="centerX" constant="30" id="meS-uN-gEs"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="IRa-34-uvN">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IRa-34-uvN" id="AOW-R5-zMx">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RYt-NH-JP1" id="lP0-6d-Qth"/>
+                            <outlet property="delegate" destination="RYt-NH-JP1" id="4KV-Km-IZ0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Ivu-sv-7Tr"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="etG-Nl-EpO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="909" y="473"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -118,10 +195,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1624" y="473"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6Rw-YF-DHM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4IU-Dj-65e" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YhZ-he-VVK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RYt-NH-JP1" kind="relationship" relationship="rootViewController" id="Xth-kX-BFl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bjx-Ni-NiH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="97" y="473"/>
         </scene>
     </scenes>
     <resources>
-        <image name="default" width="30" height="30"/>
+        <image name="clear-day" width="58" height="60"/>
+        <image name="default" width="28" height="28"/>
         <image name="refresh" width="43" height="43"/>
     </resources>
 </document>
