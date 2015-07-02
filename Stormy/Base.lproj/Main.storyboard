@@ -74,10 +74,14 @@
                                     <action selector="refreshWeather" destination="vXZ-lx-hvc" eventType="touchUpInside" id="SnN-uk-lBz"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Jey-oD-WnG">
+                                <rect key="frame" x="291" y="62" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.29019607843137257" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="609-yx-1Nc" firstAttribute="centerX" secondItem="0Uk-dn-wyO" secondAttribute="centerX" constant="0.5" id="58g-FR-FvX"/>
+                            <constraint firstItem="Jey-oD-WnG" firstAttribute="centerX" secondItem="MHm-J1-pd6" secondAttribute="centerX" constant="-0.5" id="6Vg-vZ-JJc"/>
                             <constraint firstItem="uGT-fD-WCP" firstAttribute="centerX" secondItem="IKq-wI-chw" secondAttribute="centerX" id="7Gt-Hn-hLR"/>
                             <constraint firstItem="0Uk-dn-wyO" firstAttribute="top" secondItem="wIF-kZ-lf2" secondAttribute="bottom" constant="6" id="9Cz-ZX-l7M"/>
                             <constraint firstItem="ztf-Rt-CBY" firstAttribute="top" relation="greaterThanOrEqual" secondItem="609-yx-1Nc" secondAttribute="bottom" constant="30" id="BJl-Wj-Uvj"/>
@@ -92,6 +96,7 @@
                             <constraint firstItem="MHm-J1-pd6" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="Wuk-P6-1lk"/>
                             <constraint firstAttribute="centerX" secondItem="wIF-kZ-lf2" secondAttribute="centerX" id="Y9J-3d-3SO"/>
                             <constraint firstItem="aGk-yC-RQB" firstAttribute="leading" secondItem="69S-aP-W69" secondAttribute="trailing" constant="8" id="YTD-2u-OJ0"/>
+                            <constraint firstItem="Jey-oD-WnG" firstAttribute="centerY" secondItem="MHm-J1-pd6" secondAttribute="centerY" constant="0.5" id="eyr-zD-aJX"/>
                             <constraint firstAttribute="centerX" secondItem="ztf-Rt-CBY" secondAttribute="centerX" id="gXb-Ku-7ko"/>
                             <constraint firstAttribute="centerX" secondItem="MHm-J1-pd6" secondAttribute="centerX" constant="-1.5" id="jTh-u1-Skx"/>
                             <constraint firstItem="uGT-fD-WCP" firstAttribute="top" secondItem="IKq-wI-chw" secondAttribute="bottom" constant="9" id="oWi-tp-Vba"/>
@@ -101,15 +106,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="currentHumidityLabel" destination="609-yx-1Nc" id="pwt-9o-eQ7"/>
-                        <outlet property="currentPrecipitationLabel" destination="uGT-fD-WCP" id="RTH-6p-AZ8"/>
-                        <outlet property="currentSummaryLabel" destination="ztf-Rt-CBY" id="DpY-LM-Gme"/>
-                        <outlet property="currentTemperatureLabel" destination="wIF-kZ-lf2" id="dEz-W2-ed1"/>
-                        <outlet property="currentWeatherIcon" destination="69S-aP-W69" id="DAR-h9-VCb"/>
-                        <outlet property="currentWeatherImage" destination="69S-aP-W69" id="H6n-bC-O8U"/>
+                        <outlet property="activityIndicator" destination="Jey-oD-WnG" id="7dm-Nb-Q6M"/>
                         <outlet property="humidityLabel" destination="609-yx-1Nc" id="Yfb-rv-HUX"/>
                         <outlet property="locationLabel" destination="aGk-yC-RQB" id="klF-UW-9Em"/>
                         <outlet property="precipitationLabel" destination="uGT-fD-WCP" id="OZn-CS-3Uh"/>
+                        <outlet property="refreshButton" destination="MHm-J1-pd6" id="VLT-5a-Deq"/>
                         <outlet property="summaryLabel" destination="ztf-Rt-CBY" id="uko-AI-6fa"/>
                         <outlet property="temperatureLabel" destination="wIF-kZ-lf2" id="aSP-VP-VHU"/>
                         <outlet property="weatherImage" destination="69S-aP-W69" id="Fn4-PR-gBM"/>

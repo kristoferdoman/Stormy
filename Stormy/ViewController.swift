@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var weatherImage: UIImageView?
     @IBOutlet weak var summaryLabel: UILabel?
     @IBOutlet weak var locationLabel: UILabel?
+    @IBOutlet weak var refreshButton: UIButton?
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
     
     private let forecastAPIKey = "6da53b24a6690dbd8aad480ee9ab808b"
     let coordinate: (lat: Double, long: Double) = (37.8267,-122.423)
@@ -54,12 +56,24 @@ class ViewController: UIViewController {
                     if let summary = currentWeather.summary {
                         self.summaryLabel?.text = summary
                     }
+                    
+                    self.toggleRefreshAnimation(false)
                 }
             }
         }
     }
     
+    func toggleRefreshAnimation(on: Bool) {
+        refreshButton?.hidden = on
+        if on {
+            activityIndicator?.startAnimating()
+        } else {
+            activityIndicator?.stopAnimating()
+        }
+    }
+    
     @IBAction func refreshWeather() {
+        toggleRefreshAnimation(true)
         retrieveWeatherForecast()
     }
 }
