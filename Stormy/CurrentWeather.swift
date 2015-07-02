@@ -20,6 +20,25 @@ enum Icon: String {
     case Cloudy = "cloudy"
     case PartlyCloudyDay = "partly-cloudy-day"
     case PartlyCloudyNight = "partly-cloudy-night"
+    
+    func toImage() -> UIImage? {
+        var imageName: String
+        
+        switch self {
+        case .ClearDay: imageName = "clear-day.png"
+        case .ClearNight: imageName = "clear-night.png"
+        case .Rain: imageName = "rain.png"
+        case .Snow: imageName = "snow.png"
+        case .Sleet: imageName = "sleet.png"
+        case .Wind: imageName = "wind.png"
+        case .Fog: imageName = "fog.png"
+        case .Cloudy: imageName = "cloudy.png"
+        case .PartlyCloudyDay: imageName = "cloudy-day.png"
+        case .PartlyCloudyNight: imageName = "cloudy-night.png"
+        }
+        
+        return UIImage(named: imageName)
+    }
 }
 
 struct CurrentWeather {
@@ -28,7 +47,7 @@ struct CurrentWeather {
     let humidity: Int?
     let precipProbability: Int?
     let summary: String?
-    let icon: UIImage? = UIImage(named: "default.png")
+    var icon: UIImage? = UIImage(named: "default.png")
     
     init(weatherDictionary: [String: AnyObject]) {
         temperature = weatherDictionary["temperature"] as? Int
@@ -47,7 +66,8 @@ struct CurrentWeather {
         
         summary = weatherDictionary["summary"] as? String
         
-        
+        if let iconString = weatherDictionary["icon"] as? String, let weatherIcon: Icon = Icon(rawValue: iconString) {
+            icon = weatherIcon.toImage()
+        }
     }
-    
 }
