@@ -9,72 +9,59 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var temperatureLabel: UILabel?
-    @IBOutlet weak var humidityLabel: UILabel?
-    @IBOutlet weak var precipitationLabel: UILabel?
-    @IBOutlet weak var weatherImage: UIImageView?
-    @IBOutlet weak var summaryLabel: UILabel?
-    @IBOutlet weak var locationLabel: UILabel?
-    @IBOutlet weak var refreshButton: UIButton?
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
     
-    private let forecastAPIKey = "6da53b24a6690dbd8aad480ee9ab808b"
-    let coordinate: (lat: Double, long: Double) = (37.8267,-122.423)
+    var dailyWeather: DailyWeather? {
+        didSet {
+            configureView()
+        }
+    }
+    
+    @IBOutlet weak var iconImageView: UIImageView?
+    @IBOutlet weak var summaryLabel: UILabel?
+    @IBOutlet weak var sunriseTimeLabel: UILabel?
+    @IBOutlet weak var sunsetTimeLabel: UILabel?
+    @IBOutlet weak var lowLabel: UILabel?
+    @IBOutlet weak var highLabel: UILabel?
+    @IBOutlet weak var precipitationLabel: UILabel?
+    @IBOutlet weak var humidityLabel: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        retrieveWeatherForecast()
+        configureView()
     }
 
+    func configureView() {
+        if let weather = dailyWeather {
+            // Update UI with information from the data model.
+            iconImageView?.image = weather.largeIcon
+            summaryLabel?.text = weather.summary
+            sunriseTimeLabel?.text = weather.sunriseTime
+            sunsetTimeLabel?.text = weather.sunsetTime
+            
+            if let lowTemp = weather.minTemperature, let highTemp = weather.maxTemperature, let rain = weather.precipitationChance, let humidity = weather.humidity {
+                lowLabel?.text = "\(lowTemp)º"
+                highLabel?.text = "\(highTemp)º"
+                precipitationLabel?.text = "\(rain)%"
+                humidityLabel?.text = "\(humidity)%"
+            }
+            
+            self.title = weather.day
+        }
+        
+        // Configure navigation bar back button.
+        if let buttonFont = UIFont(name: "HelveticaNeue-Thin", size: 20.0) {
+            let barButtonsAttributesDictionary: [NSObject: AnyObject]? = [
+                NSForegroundColorAttributeName: UIColor.whiteColor(),
+                NSFontAttributeName: buttonFont
+            ]
+            
+            UIBarButtonItem.appearance().setTitleTextAttributes(barButtonsAttributesDictionary, forState: UIControlState.Normal)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    func retrieveWeatherForecast() {
-        let forecastService = ForecastService(APIKey: forecastAPIKey)
-        forecastService.getForecast(coordinate.lat, long: coordinate.long) { (let currently) in
-            if let currentWeather = currently {
-                dispatch_async(dispatch_get_main_queue()) {
-                    if let temperature = currentWeather.temperature {
-                        self.temperatureLabel?.text = "\(temperature)º"
-                    }
-                    
-                    if let humidity = currentWeather.humidity {
-                        self.humidityLabel?.text = "\(humidity)%"
-                    }
-                    
-                    if let precipitation = currentWeather.precipProbability {
-                        self.precipitationLabel?.text = "\(precipitation)%"
-                    }
-                    
-                    if let icon = currentWeather.icon {
-                        self.weatherImage?.image = icon
-                    }
-                    
-                    if let summary = currentWeather.summary {
-                        self.summaryLabel?.text = summary
-                    }
-                    
-                    self.toggleRefreshAnimation(false)
-                }
-            }
-        }
-    }
-    
-    func toggleRefreshAnimation(on: Bool) {
-        refreshButton?.hidden = on
-        if on {
-            activityIndicator?.startAnimating()
-        } else {
-            activityIndicator?.stopAnimating()
-        }
-    }
-    
-    @IBAction func refreshWeather() {
-        toggleRefreshAnimation(true)
-        retrieveWeatherForecast()
     }
 }
 
